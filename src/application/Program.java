@@ -11,12 +11,11 @@ import services.CalculationService;
 public class Program {
 
 	public static void main(String[] args) {
-	//fazer o programa ler um conjunto de produto a partir de um arquivo
-	//depois mostrar o mais caro deles
+	//Por enquanto procura na lista de inteiro
 		
 	List<Integer> list = new ArrayList<>();
 	
-	String path = ":\\Users\\teste\\Desktop\\Workspaces\\ws-eclipse\\71_Genéricos_delimitados\\in.txt";
+	String path = "C:\\Users\\teste\\Desktop\\Workspaces\\ws-eclipse\\71_Genéricos_delimitados\\in.txt";
 	
 	try(BufferedReader br = new BufferedReader(new FileReader(path)))  {
 		String line = br.readLine();

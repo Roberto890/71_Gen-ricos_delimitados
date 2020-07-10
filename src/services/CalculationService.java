@@ -10,6 +10,7 @@ public class CalculationService {
 		}
 		Integer max = list.get(0);
 		for (Integer item : list) {
+			//compareTo (devolve inteiros se for maior q 0 é maior se for negativo menor se for 0 igual)
 			if (item.compareTo(max) > 0) {
 				max = item;
 			}
