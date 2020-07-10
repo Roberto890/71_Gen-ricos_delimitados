@@ -5,28 +5,36 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
+import entities.Product;
 import services.CalculationService;
 
 public class Program {
 
 	public static void main(String[] args) {
-	//Por enquanto procura na lista de inteiro
-		
-	List<Integer> list = new ArrayList<>();
+	//fazer o programa ler um conjunto de produto a partir de um arquivo
+	//depois mostrar o mais caro deles
+	//AGORA TRABALHANDO COM PRODUTOS
+	
+	Locale.setDefault(Locale.US);
+	
+	List<Product> list = new ArrayList<>();
 	
 	String path = "C:\\Users\\teste\\Desktop\\Workspaces\\ws-eclipse\\71_Genéricos_delimitados\\in.txt";
 	
 	try(BufferedReader br = new BufferedReader(new FileReader(path)))  {
 		String line = br.readLine();
+		String[] fields;
 		while(line != null) {
-			list.add(Integer.parseInt(line));
+			fields = line.split(",");
+			list.add(new Product(fields[0],Double.parseDouble(fields[1])));
 			line = br.readLine();
 		}
 		
-		Integer x = CalculationService.max(list);
-		System.out.println("Max: ");
-		System.out.println(x);
+		Product x = CalculationService.max(list);
+		System.out.println("Most Expensive: ");
+		System.out.print(x);
 		
 	}catch(IOException e) {
 		System.out.println("Error: " + e.getMessage());
