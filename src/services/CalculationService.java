@@ -6,8 +6,8 @@ import entities.Product;
 
 public class CalculationService {
 	// COLOCA <T> no inicio pq ele vai trablahar com algum tipo T ou qualquer merda
-				//COLOCA COMPARABLE PRA FUNCIONAR A COMPARAÇÃO compareTo
-	public static <T extends Comparable<T>> T max(List<T> list) {
+				//assim pode ser o produto ou qualquer super classe do produto caso tivesse
+	public static <T extends Comparable<? super T>> T max(List<T> list) {
 		if (list.isEmpty()) {
 			throw new IllegalStateException("List can't be empty");
 		}
